@@ -45,6 +45,7 @@
             })
                 .then(function (response) {
                     console.log(response.data);
+                    document.querySelector("#message").innerHTML= response.data;
              
                 })
                 .catch(function (error) {
