@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>sighn up page</h1>
+    <form onsubmit="sighnup(); return false ">
+        <label for="full name">Full name</label>
+        <input id="fullname">
+        <br>
+        <label for="Email">Email</label>
+        <input id="email">
+        <br>
+        <label for="pnumber">phone number</label>
+        <input id="phonenumber">
+        <br>
+        <label for="password">password</label>
+        <input id="password">
+<br>
+        <input type="submit" value="sighnup">
+    </form>
+    <p id="message"> </p>
+
+    <script>
+        function sighnup() {
+        var fullname = document.getElementById('fullname').value;
+        var email = document.getElementById('email').value;
+        var contact = document.getElementById('phonenumber').value;
+        var password = document.getElementById('password').value;
+
+
+            axios.post('https://sighn-up-server.herokuapp.com/user', {
+                fullname: fullname,
+                email: email,
+                contact : contact,
+                password: password
+
+            })
+                .then(function (response) {
+                    console.log(response.data);
+             
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+
+
+
+    </script>
+
+
+</body>
+
+</html>
